@@ -10,6 +10,7 @@ namespace KnightsTourProblem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello, knight!");
         }
     }
 }

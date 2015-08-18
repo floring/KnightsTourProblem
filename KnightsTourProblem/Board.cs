@@ -12,18 +12,33 @@ namespace KnightsTourProblem
     /// </summary>
     class Board
     {
-        private int _x;
-        private int _y;
+        private int _rowSize;
+        private Square[,] _board;
 
         public Board(int size)
         {
-            _x = size;
-            _y = size;
+            _rowSize = size;
+            _board = new Square[_rowSize, _rowSize];
         }
 
         public int GetRowSize()
         {
-            return _x;
+            return _rowSize;
+        }
+
+        public bool isCovered()
+        {
+            for (int i = 0; i < _rowSize; i++)
+            {
+                for (int j = 0; j < _rowSize; j++)
+                {
+                    if (!(_board[i, j].HasVisited))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

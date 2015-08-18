@@ -15,7 +15,10 @@ namespace KnightsTourProblem
         public int Y { get; private set; }
         public bool HasVisited { get; set; }
 
-        
+        public List<Square> GetMoves()
+        {
+            return null;
+        }
 
     }
 }

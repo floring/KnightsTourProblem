@@ -20,5 +20,10 @@ namespace KnightsTourProblem
             _x = size;
             _y = size;
         }
+
+        public int GetRowSize()
+        {
+            return _x;
+        }
     }
 }

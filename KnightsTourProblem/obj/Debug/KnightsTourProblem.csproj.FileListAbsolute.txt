@@ -1,1 +1,6 @@
 D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\bin\Debug\KnightsTourProblem.exe.config
+D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\bin\Debug\KnightsTourProblem.exe
+D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\bin\Debug\KnightsTourProblem.pdb
+D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\obj\Debug\KnightsTourProblem.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\obj\Debug\KnightsTourProblem.exe
+D:\Documents\Visual Studio 2012\Projects\KnightsTourProblem\KnightsTourProblem\obj\Debug\KnightsTourProblem.pdb

@@ -10,8 +10,20 @@ namespace KnightsTourProblem
     {
         static void Main(string[] args)
         {
+            const int xStart = 8;
+            const int yStart = 2;
+            const int boardSize = 5;
 
-            Console.WriteLine("Hello, knight!");
+            var board = new Board(boardSize);
+            var problem = new KnightsProblem(board, xStart, yStart);
+            try
+            {
+                problem.Solve();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

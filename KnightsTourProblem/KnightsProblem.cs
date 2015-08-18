@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 namespace KnightsTourProblem
 {
     /// <summary>
-    /// Represents chess square entity.
+    /// Class directly implements solution algorithm.
     /// </summary>
-    class Square
+    class KnightsProblem
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public bool HasVisited { get; set; }
+        public KnightsProblem()
+        {
 
-        
+        }
 
+        public void Solve()
+        {
+        }
     }
 }

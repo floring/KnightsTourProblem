@@ -39,11 +39,11 @@ namespace KnightsTourProblem
 
         private bool Step(int xPos, int yPos)
         {
-            if (_board.isCovered())
+            if (_board.IsCovered())
             {
                 return true;
             }
-            if (!_board.isCovered() && !IsMoveExists(xPos, yPos))
+            if (!_board.IsCovered() && !IsMoveExists(xPos, yPos))
             {
                 return false;
             }
@@ -53,8 +53,7 @@ namespace KnightsTourProblem
 
         private bool IsMoveExists(int x, int y)
         {
-
-            return true;
+            return (_board.GetSquare(x, y).GetMoves().Count != 0);
         }
 
         private bool IsPositionsNotValid()

@@ -12,25 +12,26 @@ namespace KnightsTourProblem
     /// </summary>
     class Board
     {
-        private int _rowSize;
+        public int RowSize { get; private set; }
         private Square[,] _board;
 
+        // возможно надо будет инициализировать доску как каждый сквеар
         public Board(int size)
         {
-            _rowSize = size;
-            _board = new Square[_rowSize, _rowSize];
+            RowSize = size;
+            _board = new Square[RowSize, RowSize];
         }
 
         public int GetRowSize()
         {
-            return _rowSize;
+            return RowSize;
         }
 
-        public bool isCovered()
+        public bool IsCovered()
         {
-            for (int i = 0; i < _rowSize; i++)
+            for (int i = 0; i < RowSize; i++)
             {
-                for (int j = 0; j < _rowSize; j++)
+                for (int j = 0; j < RowSize; j++)
                 {
                     if (!(_board[i, j].HasVisited))
                     {
@@ -39,6 +40,16 @@ namespace KnightsTourProblem
                 }
             }
             return true;
+        }
+
+        public Square GetSquare(int x, int y)
+        {
+            return _board[x, y];
+        }
+
+        public bool IsSquareValid(Square square)
+        {
+            return (square.X < RowSize && square.Y < RowSize);
         }
     }
 }

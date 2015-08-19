@@ -43,7 +43,19 @@ namespace KnightsTourProblem
             move = VerticalDownRight(square);
             if (IsSquareValid(move)) movesList.Add(move);
 
+            movesList.RemoveAll(Visited);
+
             return movesList;
+        }
+
+        /// <summary>
+        /// Search predicate.
+        /// </summary>
+        /// <param name="square">square</param>
+        /// <returns>Returns true if a Square had visited.</returns>
+        private bool Visited(Square square)
+        {
+            return square.HasVisited;
         }
 
         private Square HorizontalLeftUp(Square square)
@@ -88,7 +100,10 @@ namespace KnightsTourProblem
 
         private bool IsSquareValid(Square square)
         {
-            return (square.X < _board.RowSize && square.Y < _board.RowSize);
+            return (square.X >= 0 &&
+                square.X < _board.RowSize && 
+                square.Y >= 0 &&
+                square.Y < _board.RowSize);
         }
     }
 }

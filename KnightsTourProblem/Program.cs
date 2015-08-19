@@ -12,7 +12,7 @@ namespace KnightsTourProblem
         {
             const int xStart = 2;
             const int yStart = 2;
-            const int boardSize = 5;
+            const int boardSize = 3;
 
             var board = new Board(boardSize);
             var move = new KnightMove(board);

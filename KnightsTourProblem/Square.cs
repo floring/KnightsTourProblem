@@ -20,27 +20,5 @@ namespace KnightsTourProblem
             X = x;
             Y = y;
         }
-
-        //public List<Square> GetMoves()
-        //{
-        //    var movesList = new List<Square>();
-
-        //    Square square;
-        //    square = HorizontalLeftUp();
-        //    if (square != null) movesList.Add(square);
-
-        //    return movesList;
-        //}
-
-        //private Square HorizontalLeftUp()
-        //{
-        //    var square = new Square(X - 1, Y - 2);
-        //    return (Board.IsSquareValid(square)) ? square : null;
-        //}
-
-        
-
-
-
     }
 }

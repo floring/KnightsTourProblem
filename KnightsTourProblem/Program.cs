@@ -15,7 +15,8 @@ namespace KnightsTourProblem
             const int boardSize = 5;
 
             var board = new Board(boardSize);
-            var problem = new KnightsProblem(board, xStart, yStart);
+            var move = new KnightMove(board);
+            var problem = new KnightsProblem(board, xStart, yStart, move);
             try
             {
                 problem.Solve();

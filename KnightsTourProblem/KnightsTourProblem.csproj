@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="IMove.cs" />
+    <Compile Include="KnightMove.cs" />
     <Compile Include="KnightsProblem.cs" />
     <Compile Include="PositionOutOfRangeException.cs" />
     <Compile Include="Program.cs" />

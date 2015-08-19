@@ -46,10 +46,5 @@ namespace KnightsTourProblem
         {
             return _board[x, y];
         }
-
-        public bool IsSquareValid(Square square)
-        {
-            return (square.X < RowSize && square.Y < RowSize);
-        }
     }
 }

@@ -16,12 +16,14 @@ namespace KnightsTourProblem
         private Board _board;
         private int _xStartPosition;
         private int _yStartPosition;
+        private IMove _move;
 
-        public KnightsProblem(Board board, int xStartPos, int yStartPos)
+        public KnightsProblem(Board board, int xStartPos, int yStartPos, IMove move)
         {
             _board = board;
             _xStartPosition = xStartPos;
             _yStartPosition = yStartPos;
+            _move = move;
         }
 
         public void Solve()
@@ -53,7 +55,7 @@ namespace KnightsTourProblem
 
         private bool IsMoveExists(int x, int y)
         {
-            return (_board.GetSquare(x, y).GetMoves().Count != 0);
+            return (_move.GetMove(_board.GetSquare(x, y)).Count > 0);
         }
 
         private bool IsPositionsNotValid()

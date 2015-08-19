@@ -10,7 +10,7 @@ namespace KnightsTourProblem
     {
         static void Main(string[] args)
         {
-            const int xStart = 8;
+            const int xStart = 2;
             const int yStart = 2;
             const int boardSize = 5;
 

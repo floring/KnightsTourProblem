@@ -15,11 +15,20 @@ namespace KnightsTourProblem
         public int RowSize { get; private set; }
         private Square[,] _board;
 
-        // возможно надо будет инициализировать доску как каждый сквеар
         public Board(int size)
         {
             RowSize = size;
+
+            // Create the array to store the squares.
             _board = new Square[RowSize, RowSize];
+            // Populate the board with Square objects.
+            for (int i = 0; i < RowSize; ++i)
+            {
+                for (int j = 0; j < RowSize; ++j)
+                {
+                    _board[i, j] = new Square(i, j);
+                }
+            }
         }
 
         public int GetRowSize()

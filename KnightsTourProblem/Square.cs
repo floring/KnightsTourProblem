@@ -20,5 +20,10 @@ namespace KnightsTourProblem
             X = x;
             Y = y;
         }
+
+        public override string ToString()
+        {
+            return new StringBuilder().Append(X).Append(':').Append(Y).ToString();
+        }
     }
 }

@@ -19,7 +19,11 @@ namespace KnightsTourProblem
             var problem = new KnightsProblem(board, xStart, yStart, move);
             try
             {
-                problem.Solve();
+                List<Square> res = problem.Solve();
+                foreach(Square s in res) 
+                {
+                    Console.WriteLine(s);
+                }
             }
             catch (Exception e)
             {

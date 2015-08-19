@@ -17,6 +17,7 @@ namespace KnightsTourProblem
         private int _xStartPosition;
         private int _yStartPosition;
         private IMove _move;
+        private List<Square> _resultPath;
 
         public KnightsProblem(Board board, int xStartPos, int yStartPos, IMove move)
         {
@@ -26,7 +27,7 @@ namespace KnightsTourProblem
             _move = move;
         }
 
-        public void Solve()
+        public List<Square> Solve()
         {
             if (IsPositionsNotValid())
             {
@@ -35,21 +36,42 @@ namespace KnightsTourProblem
 
             if (Step(_xStartPosition, _yStartPosition))
             {
-                // we did it!
+                return _resultPath;
             }
+            return null;
         }
 
         private bool Step(int xPos, int yPos)
         {
             if (_board.IsCovered())
             {
+                _resultPath = new List<Square>();
+                _resultPath.Add(_board.GetSquare(xPos, yPos));
                 return true;
             }
             if (!_board.IsCovered() && !IsMoveExists(xPos, yPos))
             {
                 return false;
             }
+            
+            var currentSquare = _board.GetSquare(xPos, yPos);
+            currentSquare.HasVisited = true;
+            var movesList = _move.GetMove(currentSquare);
+            foreach (var move in movesList)
+            {
+                bool result = Step(move.X, move.Y);
+                if (result)
+                {
+                    _resultPath.Add(currentSquare);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
+            currentSquare.HasVisited = false;
             return false;
         }
 

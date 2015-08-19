@@ -15,6 +15,8 @@ namespace KnightsTourProblem
         public int Y { get; private set; }
         public bool HasVisited { get; set; }
 
+        public int Value { get; set; }
+
         public Square(int x, int y)
         {
             X = x;

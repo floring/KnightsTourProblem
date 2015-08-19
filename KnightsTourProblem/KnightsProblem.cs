@@ -19,6 +19,8 @@ namespace KnightsTourProblem
         private IMove _move;
         private List<Square> _resultPath;
 
+        public int counter = 0;
+
         public KnightsProblem(Board board, int xStartPos, int yStartPos, IMove move)
         {
             _board = board;
@@ -33,31 +35,28 @@ namespace KnightsTourProblem
             {
                 throw new PositionOutOfRangeException("Position must be less than board size;");
             }
-
+            
             if (Step(_xStartPosition, _yStartPosition))
             {
                 return _resultPath;
             }
-            return null;
+            return new List<Square>();
         }
 
         private bool Step(int xPos, int yPos)
         {
+            var currentSquare = _board.GetSquare(xPos, yPos);
+            currentSquare.HasVisited = true;
+
             if (_board.IsCovered())
             {
                 _resultPath = new List<Square>();
                 _resultPath.Add(_board.GetSquare(xPos, yPos));
                 return true;
             }
-            if (!_board.IsCovered() && !IsMoveExists(xPos, yPos))
-            {
-                return false;
-            }
-            
-            var currentSquare = _board.GetSquare(xPos, yPos);
-            currentSquare.HasVisited = true;
-            var movesList = _move.GetMove(currentSquare);
-            foreach (var move in movesList)
+
+            var moves = _move.GetMove(currentSquare);
+            foreach (var move in moves)
             {
                 bool result = Step(move.X, move.Y);
                 if (result)
@@ -65,12 +64,7 @@ namespace KnightsTourProblem
                     _resultPath.Add(currentSquare);
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
-
             currentSquare.HasVisited = false;
             return false;
         }
@@ -82,7 +76,10 @@ namespace KnightsTourProblem
 
         private bool IsPositionsNotValid()
         {
-            return (_xStartPosition >= _board.GetRowSize() || _yStartPosition >= _board.GetRowSize());
+            return (_xStartPosition < 0 ||
+                _xStartPosition >= _board.GetRowSize() || 
+                _yStartPosition < 0 ||
+                _yStartPosition >= _board.GetRowSize());
         }
     }
 }

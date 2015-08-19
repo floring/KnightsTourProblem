@@ -55,5 +55,32 @@ namespace KnightsTourProblem
         {
             return _board[x, y];
         }
+
+        public String Draw()
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < RowSize; i++)
+            {
+                for (int j = 0; j < RowSize; j++)
+                {
+                    string value = "-";
+                    if (_board[i, j].HasVisited)
+                    {
+                        value = "x";
+                    }
+                    // convinient format
+                    if (value.Length > 1)
+                    {
+                        sb.AppendFormat(String.Format("{0} ", value));
+                    }
+                    else
+                    {
+                        sb.AppendFormat(String.Format("{0}  ", value));
+                    }
+                }
+                sb.Append(Environment.NewLine);
+            }
+            return sb.ToString();
+        }
     }
 }

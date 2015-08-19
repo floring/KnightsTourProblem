@@ -53,9 +53,9 @@ namespace KnightsTourProblem
         /// </summary>
         /// <param name="square">square</param>
         /// <returns>Returns true if a Square had visited.</returns>
-        private bool Visited(Square square)
+        private bool Visited(Square s)
         {
-            return square.HasVisited;
+            return _board.GetSquare(s.X, s.Y).HasVisited;
         }
 
         private Square HorizontalLeftUp(Square square)

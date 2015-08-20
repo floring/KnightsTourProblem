@@ -45,6 +45,9 @@ namespace KnightsTourProblem
 
             movesList.RemoveAll(Visited);
 
+            // randomize the order of a list to provide various detours each time
+            //movesList.Shuffle();
+
             return movesList;
         }
 

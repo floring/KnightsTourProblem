@@ -58,29 +58,28 @@ namespace KnightsTourProblem
 
         public String Draw()
         {
-            var sb = new StringBuilder();
+            var stringBuilder = new StringBuilder();
+
+            // get the value of longest element in board
+            int maxRowLength = 0;
+            for (int i = 0; i < RowSize; i++)
+                for (int j = 0; j < RowSize; j++)
+                {
+                    int curLength = _board[i, j].Value.ToString().Length;
+                    if (curLength > maxRowLength) maxRowLength = curLength;
+                }
+
             for (int i = 0; i < RowSize; i++)
             {
                 for (int j = 0; j < RowSize; j++)
                 {
-                    string value = "-";
-                    if (_board[i, j].HasVisited)
-                    {
-                        value = "x";
-                    }
-                    // convinient format
-                    if (value.Length > 1)
-                    {
-                        sb.AppendFormat(String.Format("{0} ", value));
-                    }
-                    else
-                    {
-                        sb.AppendFormat(String.Format("{0}  ", value));
-                    }
+                    string format = "{0," + maxRowLength + "} ";
+                    stringBuilder.AppendFormat(String.Format(format, _board[i, j].Value));
                 }
-                sb.Append(Environment.NewLine);
+                stringBuilder.AppendLine();
             }
-            return sb.ToString();
+
+            return stringBuilder.ToString();
         }
     }
 }

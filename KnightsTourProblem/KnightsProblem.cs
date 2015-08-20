@@ -18,8 +18,7 @@ namespace KnightsTourProblem
         private int _yStartPosition;
         private IMove _move;
         private List<Square> _resultPath;
-
-        public int counter = 0;
+        private int _currentIteration;
 
         public KnightsProblem(Board board, int xStartPos, int yStartPos, IMove move)
         {
@@ -29,7 +28,7 @@ namespace KnightsTourProblem
             _move = move;
         }
 
-        public List<Square> Solve()
+        public String Solve()
         {
             if (IsPositionsNotValid())
             {
@@ -38,15 +37,20 @@ namespace KnightsTourProblem
             
             if (Step(_xStartPosition, _yStartPosition))
             {
-                return _resultPath;
+                return _board.Draw();
             }
-            return new List<Square>();
+            return "Cannot find the sequence of moves.";
         }
 
         private bool Step(int xPos, int yPos)
         {
+            _currentIteration++;
+
             var currentSquare = _board.GetSquare(xPos, yPos);
             currentSquare.HasVisited = true;
+            currentSquare.Value = _currentIteration;
+
+            Console.WriteLine(_board.Draw());
 
             if (_board.IsCovered())
             {
@@ -65,6 +69,11 @@ namespace KnightsTourProblem
                     return true;
                 }
             }
+
+            Console.WriteLine(_board.Draw());
+
+            _currentIteration--;
+            currentSquare.Value = 0;
             currentSquare.HasVisited = false;
             return false;
         }

@@ -15,16 +15,12 @@ namespace KnightsTourProblem
             const int boardSize = 5;
 
             var board = new Board(boardSize);
-
             var move = new KnightMove(board);
             var problem = new KnightsProblem(board, xStart, yStart, move);
             try
             {
-                List<Square> res = problem.Solve();
-                foreach (Square s in res)
-                {
-                    Console.WriteLine(s);
-                }
+                String solution = problem.Solve();
+                Console.WriteLine(solution);
             }
             catch (Exception e)
             {

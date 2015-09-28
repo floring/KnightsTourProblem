@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnightsTourProblem
 {
+    /// <summary>
+    /// Implements PositionOutOfRangeException.
+    /// Throws exception if a starting position from which to start the tour goes beyond the board.
+    /// </summary>
     [Serializable()]
     class PositionOutOfRangeException : SystemException
     {

@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KnightsTourProblem
 {
     class Program
     {
+        /// <summary>
+        /// Main entry point to program
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             const int xStart = 2;
@@ -22,7 +22,7 @@ namespace KnightsTourProblem
                 String solution = problem.Solve();
                 Console.WriteLine(solution);
             }
-            catch (Exception e)
+            catch (PositionOutOfRangeException e)
             {
                 Console.WriteLine(e.Message);
             }

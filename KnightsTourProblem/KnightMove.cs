@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KnightsTourProblem
 {
+    /// <summary>
+    /// Implements knight's move on chessboard.
+    /// </summary>
     class KnightMove : IMove
     {
         private Board _board;
@@ -46,7 +45,7 @@ namespace KnightsTourProblem
             movesList.RemoveAll(Visited);
 
             // randomize the order of a list to provide various detours each time
-            //movesList.Shuffle();
+            movesList.Shuffle();
 
             return movesList;
         }
